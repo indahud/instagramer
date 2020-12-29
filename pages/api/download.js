@@ -1,10 +1,10 @@
 import axios from "axios"
 
 export default async (req, res) => {
-  const { Url } = req.query
+  const { Link } = req.query
 
   try {
-    let newUrl = Url.replace(/\?.*/, "").trim()
+    let newUrl = Link.replace(/\?.*/, "").trim()
     newUrl =
       newUrl.substr(newUrl.length - 1) === "/" ? newUrl.slice(0, -1).trim() : ""
 

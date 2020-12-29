@@ -2,8 +2,6 @@ import axios from "axios"
 
 export default async (req, res) => {
   const { Link } = req.query
-
-  try {
     let newUrl = Link.replace(/\?.*/, "").trim()
     newUrl =
       newUrl.substr(newUrl.length - 1) === "/" ? newUrl.slice(0, -1).trim() : ""
@@ -27,9 +25,5 @@ export default async (req, res) => {
         thumbnailData: imageThumbnail
       })
     }
-  } catch (error) {
-    return res.status(500).json({
-      msg: "Error"
-    })
-  }
+
 }

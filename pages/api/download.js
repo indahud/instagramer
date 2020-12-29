@@ -28,7 +28,6 @@ export default async (req, res) => {
       })
     }
   } catch (error) {
-    console.error(err)
     return res.status(500).json({
       msg: "Error"
     })

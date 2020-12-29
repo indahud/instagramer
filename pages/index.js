@@ -16,7 +16,7 @@ export default function Home() {
 
  const buttonHandler = (event) => {
    event.preventDefault()
-   setUrl(`${baseEndpoint}?Url=${serachQuery}`)
+   setUrl(`${baseEndpoint}?Link=${serachQuery}`)
    setSearchQuery("")
  }
 

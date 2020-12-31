@@ -7,7 +7,12 @@ export default async (req, res) => {
     newUrl =
       newUrl.substr(newUrl.length - 1) === "/" ? newUrl.slice(0, -1).trim() : ""
 
-    const fetchData = await axios(`${newUrl}/?__a=1`)
+    const fetchData = await axios.get(`${newUrl}/?__a=1`, {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+      }
+    })
     res.setHeader("Content-Type", "application/json")
     const rawData = await fetchData.data
 

@@ -23,12 +23,9 @@ export default function Home() {
  useEffect(() => {
    const getData = async () => {
      setIsDataLoaded(false)
-
-     try {
        const result = await axios(url)
        setData(result.data)
        setIsDataLoaded(true)
-     } catch (error) {}
    }
    getData()
  }, [url])

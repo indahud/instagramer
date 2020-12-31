@@ -10,24 +10,22 @@ export default async (req, res) => {
     const fetchData = await axios(`${newUrl}/?__a=1`)
     res.setHeader("Content-Type", "application/json")
     const rawData = await fetchData.data
-    res.json({
-      response: rawData
-    })
-    // if (rawData.graphql.shortcode_media.is_video) {
-    //   const videoResult = await rawData.graphql.shortcode_media.video_url
-    //   const videoThumbnail = await rawData.graphql.shortcode_media.display_url
 
-    //   return res.status(200).json({
-    //     resData: videoResult,
-    //     thumbnailData: videoThumbnail
-    //   })
-    // } else {
-    //   const Imageresult = await rawData.graphql.shortcode_media.display_url
-    //   const imageThumbnail = await rawData.graphql.shortcode_media.display_url
-    //   return res.status(200).json({
-    //     resData: Imageresult,
-    //     thumbnailData: imageThumbnail
-    //   })
-    // }
+    if (rawData.graphql.shortcode_media.is_video) {
+      const videoResult = await rawData.graphql.shortcode_media.video_url
+      const videoThumbnail = await rawData.graphql.shortcode_media.display_url
+
+      return res.status(200).json({
+        resData: videoResult,
+        thumbnailData: videoThumbnail
+      })
+    } else {
+      const Imageresult = await rawData.graphql.shortcode_media.display_url
+      const imageThumbnail = await rawData.graphql.shortcode_media.display_url
+      return res.status(200).json({
+        resData: Imageresult,
+        thumbnailData: imageThumbnail
+      })
+    }
 
 }

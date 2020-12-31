@@ -8,6 +8,9 @@ export default async (req, res) => {
 
     const fetchData = await axios(`${newUrl}/?__a=1`)
     const rawData = await fetchData.data
+    return res.json({
+      data: rawData
+    })
     console.log(rawData)
     // if (rawData.graphql.shortcode_media.is_video) {
     //   const videoResult = await rawData.graphql.shortcode_media.video_url

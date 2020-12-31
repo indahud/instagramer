@@ -11,7 +11,7 @@ export default async (req, res) => {
     return res.json({
       data: rawData
     })
-    console.log(rawData)
+    //console.log(rawData)
     // if (rawData.graphql.shortcode_media.is_video) {
     //   const videoResult = await rawData.graphql.shortcode_media.video_url
     //   const videoThumbnail = await rawData.graphql.shortcode_media.display_url

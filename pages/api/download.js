@@ -1,6 +1,7 @@
 import axios from "axios"
 
 export default async (req, res) => {
+
   const { Link } = req.query
     let newUrl = Link.replace(/\?.*/, "").trim()
     newUrl =
@@ -8,6 +9,7 @@ export default async (req, res) => {
 
     const fetchData = await axios(`${newUrl}/?__a=1`)
     const rawData = await fetchData.data
+    res.setHeader("Content-Type", "application/json")
     return res.json({
       data: rawData
     })
